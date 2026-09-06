@@ -293,29 +293,52 @@ export const portfolioData = {
 
   certifications: [
     {
-      title: "SQL (Basic & Intermediate)",
-      issuer: "HackerRank",
-      focus: "Complex joins, subqueries, group by aggregations, window functions"
+      id: "msbte-rank-1",
+      title: "1st Rank in Computer Engineering (Summer 2024)",
+      issuer: "MSBTE & S P M Polytechnic, Solapur",
+      date: "Summer 2024",
+      credentialId: "SPMP-MSBTE-RANK1-2024",
+      image: "/1st_Rank_Certificate.jpg",
+      highlight: "🥇 1st Rank Across Institution (92%)",
+      category: "Academic Distinction",
+      description: "Certificate of Appreciation awarded for securing First Rank across the entire Computer Engineering Program in the Summer 2024 examination conducted by the Maharashtra State Board of Technical Education (MSBTE).",
+      skills: ["Academic Distinction", "Object-Oriented Programming", "Relational DBMS", "Data Structures"]
     },
     {
-      title: "Java",
-      issuer: "HackerRank",
-      focus: "Core Java, OOP principles, collections framework, exception handling"
+      id: "scaler-nodejs",
+      title: "Node JS Certification Course — Master the Fundamentals",
+      issuer: "Scaler Topics (Signed by Anshuman Singh, Co-founder)",
+      date: "25 April 2025",
+      credentialId: "SCALER-TOPICS-NODEJS-2025",
+      image: "/Node_JS_Cert.png",
+      highlight: "🚀 58 Tutorials • 10 Modules",
+      category: "Backend Engineering",
+      description: "Certificate of Excellence for comprehensive mastery of Node.js server architectures, asynchronous event loops, streaming pipelines, module systems, and RESTful API development.",
+      skills: ["Node.js Runtime", "Event Loop & Streams", "Express Framework", "RESTful Architecture", "Asynchronous I/O"]
     },
     {
-      title: "JavaScript",
-      issuer: "Scaler",
-      focus: "Asynchronous programming, closures, event loop, prototypes, ES6+"
+      id: "gdg-webdev-gemini",
+      title: "2-Day Web Development & Gemini AI Chatbot Workshop",
+      issuer: "Google Developer Groups (GDG) — Orchid College, Solapur",
+      date: "17th & 18th December 2024",
+      credentialId: "GDG-NKOCET-WEBDEV-2024",
+      image: "/2_Days_Web_Dev_Workshop.jpg",
+      highlight: "🤖 Gemini AI API Integration",
+      category: "Full-Stack & Generative AI",
+      description: "Successfully participated in an intensive 2-day workshop covering HTML, CSS, JavaScript, and building a live hands-on Chatbot application integrated directly with Google's Gemini AI API.",
+      skills: ["Gemini AI API", "Chatbot Development", "Modern JavaScript", "REST API Consumption", "Prompt Engineering"]
     },
     {
-      title: "Python",
-      issuer: "Reliance Foundation",
-      focus: "Data structures, scripting, algorithm design, standard libraries"
-    },
-    {
-      title: "PHP",
-      issuer: "Infosys Springboard",
-      focus: "Server-side request handling, session management, web fundamentals"
+      id: "linkedin-android-studio",
+      title: "Android Studio Essential Training",
+      issuer: "LinkedIn Learning (Signed by Dan Brodnitz)",
+      date: "December 03, 2024",
+      credentialId: "32bbb727c92fed8e24f0ef195115eb5e888121c263b96a42d2b7eda29cd3bced",
+      image: "/Android_Studio_Essential_Training.jpg",
+      highlight: "📱 Android Studio & Mobile Tooling",
+      category: "Mobile Application Development",
+      description: "Verified course completion covering Android Studio tooling, Gradle build configuration, XML layout hierarchies, activity lifecycles, and emulation testing workflows.",
+      skills: ["Android Studio", "Gradle Build System", "Activity Lifecycles", "Mobile UI Layouts", "Android SDK"]
     }
   ]
 };

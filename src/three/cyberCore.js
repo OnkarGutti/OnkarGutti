@@ -16,7 +16,7 @@ export class CyberCore {
   // Load User's Real Photograph and redraw front canvas when loaded
   loadUserPhoto() {
     const img = new Image();
-    img.src = '/onkar.jpg';
+    img.src = '/onkar-transparent.png';
     img.crossOrigin = 'anonymous';
     img.onload = () => {
       this.photoImage = img;

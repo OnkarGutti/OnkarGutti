@@ -53,6 +53,16 @@ export function initTerminal() {
       }
     },
     {
+      id: 'certificates',
+      title: 'Inspect Verified Certifications (4 Official)',
+      subtitle: 'MSBTE 1st Rank, Scaler Node.js, GDG Gemini AI & LinkedIn Android',
+      category: 'Academics',
+      icon: 'award',
+      handler: () => {
+        document.getElementById('certificates')?.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
+    {
       id: 'academics',
       title: 'View Academic Record (Rank #1)',
       subtitle: 'SPM Polytechnic (92%) & B.Tech at Orchid College, Solapur',
