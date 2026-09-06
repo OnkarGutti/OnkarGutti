@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 
-// Ultra-Premium 3D Physical Developer ID Pass with Photo, Holographic Foil, Metallic Gold NFC, and Studio Shaders
+// Ultra-Crisp, Eye-Pleasing Matte 3D Developer ID Pass
+// Features: Razor-sharp high-DPI texture, non-glare satin finish, high-contrast readable typography
 export class CyberCore {
   constructor() {
     this.group = new THREE.Group();
@@ -13,403 +14,359 @@ export class CyberCore {
     this.loadUserPhoto();
   }
 
-  // Load User's Real Photograph and redraw front canvas when loaded
+  // Load User's Photograph and redraw front canvas when ready
   loadUserPhoto() {
     const img = new Image();
     img.src = '/onkar-transparent.png';
     img.crossOrigin = 'anonymous';
     img.onload = () => {
       this.photoImage = img;
-      // Redraw front canvas with the loaded real photo
       this.redrawFrontCanvas();
-      if (this.frontTexture) {
-        this.frontTexture.needsUpdate = true;
-      }
     };
   }
 
-  // Generate Guilloche / Banknote-grade Security Wave Pattern
-  drawGuilloche(ctx, cx, cy, radius, step) {
-    ctx.save();
-    ctx.strokeStyle = 'rgba(56, 189, 248, 0.04)';
-    ctx.lineWidth = 1;
-    for (let r = 20; r < radius; r += step) {
-      ctx.beginPath();
-      for (let theta = 0; theta < Math.PI * 2; theta += 0.05) {
-        const wave = Math.sin(theta * 8) * 8;
-        const x = cx + (r + wave) * Math.cos(theta);
-        const y = cy + (r + wave) * Math.sin(theta);
-        if (theta === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      }
-      ctx.closePath();
-      ctx.stroke();
-    }
-    ctx.restore();
-  }
-
-  // Draw Front Face Canvas Texture
+  // Draw Front Face Canvas Texture with Razor-Sharp Typography & High Contrast
   renderFrontContent(ctx) {
-    // 1. Base Layer: Deep Matte Charcoal / Obsidian Titanium
-    const bgGrad = ctx.createRadialGradient(1024, 1400, 100, 1024, 1400, 1800);
-    bgGrad.addColorStop(0, '#151821');
-    bgGrad.addColorStop(0.6, '#0f1118');
-    bgGrad.addColorStop(1, '#08090d');
-    ctx.fillStyle = bgGrad;
-    ctx.fillRect(0, 0, 2048, 2800);
+    const W = 2048;
+    const H = 2816;
 
-    // 2. Micro Carbon Texture & Security Guilloche Patterns
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.025)';
-    ctx.lineWidth = 1.5;
-    for (let x = 60; x < 2048; x += 60) {
+    // 1. Deep Matte Charcoal/Obsidian Card Base
+    const bgGrad = ctx.createLinearGradient(0, 0, W, H);
+    bgGrad.addColorStop(0, '#10131a');
+    bgGrad.addColorStop(0.5, '#0b0d13');
+    bgGrad.addColorStop(1, '#07080c');
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, W, H);
+
+    // 2. Subtle Precision Micro Grid (Clean & Non-distracting)
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.015)';
+    ctx.lineWidth = 1;
+    for (let x = 80; x < W; x += 80) {
       ctx.beginPath();
       ctx.moveTo(x, 0);
-      ctx.lineTo(x, 2800);
+      ctx.lineTo(x, H);
       ctx.stroke();
     }
-    for (let y = 60; y < 2800; y += 60) {
+    for (let y = 80; y < H; y += 80) {
       ctx.beginPath();
       ctx.moveTo(0, y);
-      ctx.lineTo(2048, y);
+      ctx.lineTo(W, y);
       ctx.stroke();
     }
 
-    this.drawGuilloche(ctx, 1024, 1400, 800, 30);
-    this.drawGuilloche(ctx, 1600, 700, 400, 25);
+    // 3. Precision Outer Borders
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+    ctx.lineWidth = 3;
+    ctx.strokeRect(70, 70, W - 140, H - 140);
 
-    // 3. Precision Outer Border Frame
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
-    ctx.lineWidth = 4;
-    ctx.strokeRect(80, 80, 1888, 2640);
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.4)';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(86, 86, W - 172, H - 172);
 
-    ctx.strokeStyle = 'rgba(56, 189, 248, 0.35)';
-    ctx.lineWidth = 1.5;
-    ctx.strokeRect(96, 96, 1856, 2608);
-
-    // Corner Alignment Reticles
-    const corners = [[110, 110], [1938, 110], [110, 2690], [1938, 2690]];
+    // Corner Alignment Marks
+    const corners = [[98, 98], [W - 98, 98], [98, H - 98], [W - 98, H - 98]];
     ctx.strokeStyle = '#38bdf8';
     ctx.lineWidth = 3;
     corners.forEach(([cx, cy]) => {
       ctx.beginPath();
-      ctx.moveTo(cx - 20, cy);
-      ctx.lineTo(cx + 20, cy);
-      ctx.moveTo(cx, cy - 20);
-      ctx.lineTo(cx, cy + 20);
+      ctx.moveTo(cx - 24, cy);
+      ctx.lineTo(cx + 24, cy);
+      ctx.moveTo(cx, cy - 24);
+      ctx.lineTo(cx, cy + 24);
       ctx.stroke();
     });
 
-    // 4. Lanyard Carabiner Slot Marking
-    ctx.fillStyle = '#06070a';
+    // 4. Lanyard Strap Slot Marking
+    ctx.fillStyle = '#05070a';
     ctx.beginPath();
-    ctx.roundRect(924, 120, 200, 48, 24);
+    ctx.roundRect(W / 2 - 100, 110, 200, 44, 22);
     ctx.fill();
     ctx.strokeStyle = '#334155';
-    ctx.lineWidth = 5;
-    ctx.stroke();
-
-    // 5. Header Bar: College & Pass Identification
-    ctx.fillStyle = '#38bdf8';
-    ctx.font = 'bold 44px "Space Grotesk", sans-serif';
-    ctx.fillText('N. K. ORCHID COLLEGE OF ENGINEERING & TECH', 140, 240);
-
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '600 30px "JetBrains Mono", monospace';
-    ctx.fillText('SOLAPUR • COMPUTER SCIENCE & ENGINEERING', 140, 288);
-
-    // Active Status Pill
-    ctx.fillStyle = 'rgba(16, 185, 129, 0.15)';
-    ctx.roundRect(1620, 200, 280, 76, 38);
-    ctx.fill();
-    ctx.strokeStyle = 'rgba(16, 185, 129, 0.4)';
-    ctx.lineWidth = 2.5;
-    ctx.stroke();
-
-    ctx.fillStyle = '#10b981';
-    ctx.font = 'bold 34px "JetBrains Mono", monospace';
-    ctx.fillText('● VERIFIED', 1665, 252);
-
-    // 6. Realistic Gold NFC Microchip
-    const chipX = 140;
-    const chipY = 370;
-    const chipW = 320;
-    const chipH = 250;
-
-    const goldGrad = ctx.createLinearGradient(chipX, chipY, chipX + chipW, chipY + chipH);
-    goldGrad.addColorStop(0, '#fffbeb');
-    goldGrad.addColorStop(0.2, '#fef08a');
-    goldGrad.addColorStop(0.5, '#eab308');
-    goldGrad.addColorStop(0.8, '#ca8a04');
-    goldGrad.addColorStop(1, '#854d0e');
-    ctx.fillStyle = goldGrad;
-    ctx.roundRect(chipX, chipY, chipW, chipH, 24);
-    ctx.fill();
-    ctx.strokeStyle = '#a16207';
     ctx.lineWidth = 4;
     ctx.stroke();
 
-    // Internal Chip Circuit Traces
+    // 5. Header Branding: High-Contrast & Clear
+    ctx.fillStyle = '#ffffff';
+    ctx.font = '800 48px "Space Grotesk", sans-serif';
+    ctx.fillText('N. K. ORCHID COLLEGE OF ENGINEERING & TECH', 130, 230);
+
+    ctx.fillStyle = '#38bdf8';
+    ctx.font = 'bold 34px "JetBrains Mono", monospace';
+    ctx.fillText('SOLAPUR • COMPUTER SCIENCE & ENGINEERING', 130, 280);
+
+    // Verified Status Badge (Clear & Eye-Pleasing)
+    ctx.fillStyle = 'rgba(6, 78, 59, 0.85)';
+    ctx.beginPath();
+    ctx.roundRect(W - 470, 185, 340, 76, 38);
+    ctx.fill();
+    ctx.strokeStyle = '#34d399';
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+
+    ctx.fillStyle = '#34d399';
+    ctx.font = '800 34px "JetBrains Mono", monospace';
+    ctx.fillText('● VERIFIED PASS', W - 440, 236);
+
+    // 6. 24K Gold NFC Smart Chip (Clean Metallic Luster)
+    const chipX = 130;
+    const chipY = 350;
+    const chipW = 340;
+    const chipH = 260;
+
+    const goldGrad = ctx.createLinearGradient(chipX, chipY, chipX + chipW, chipY + chipH);
+    goldGrad.addColorStop(0, '#fef08a');
+    goldGrad.addColorStop(0.3, '#eab308');
+    goldGrad.addColorStop(0.7, '#ca8a04');
+    goldGrad.addColorStop(1, '#854d0e');
+    ctx.fillStyle = goldGrad;
+    ctx.beginPath();
+    ctx.roundRect(chipX, chipY, chipW, chipH, 20);
+    ctx.fill();
+    ctx.strokeStyle = '#a16207';
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    // Chip Micro-Circuits
     ctx.strokeStyle = '#713f12';
     ctx.lineWidth = 3;
-    ctx.strokeRect(chipX + 40, chipY + 40, chipW - 80, chipH - 80);
+    ctx.strokeRect(chipX + 44, chipY + 40, chipW - 88, chipH - 80);
     ctx.beginPath();
     ctx.moveTo(chipX + chipW / 2, chipY);
     ctx.lineTo(chipX + chipW / 2, chipY + chipH);
     ctx.moveTo(chipX, chipY + chipH / 2);
     ctx.lineTo(chipX + chipW, chipY + chipH / 2);
-    ctx.arc(chipX + chipW / 2, chipY + chipH / 2, 35, 0, Math.PI * 2);
+    ctx.arc(chipX + chipW / 2, chipY + chipH / 2, 38, 0, Math.PI * 2);
     ctx.stroke();
 
     ctx.fillStyle = '#713f12';
     ctx.beginPath();
-    ctx.arc(chipX + 80, chipY + chipH / 2, 8, 0, Math.PI * 2);
-    ctx.arc(chipX + chipW - 80, chipY + chipH / 2, 8, 0, Math.PI * 2);
+    ctx.arc(chipX + 85, chipY + chipH / 2, 8, 0, Math.PI * 2);
+    ctx.arc(chipX + chipW - 85, chipY + chipH / 2, 8, 0, Math.PI * 2);
     ctx.fill();
 
     // Chip Label
-    ctx.fillStyle = '#64748b';
-    ctx.font = 'bold 24px "JetBrains Mono", monospace';
-    ctx.fillText('NFC SMART ID CHIP', chipX + 30, chipY + chipH + 40);
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = 'bold 26px "JetBrains Mono", monospace';
+    ctx.fillText('24K GOLD NFC SMART CHIP', chipX + 8, chipY + chipH + 42);
 
-    // 7. DEVELOPER REAL PHOTOGRAPH CONTAINER
-    const photoX = 1380;
-    const photoY = 340;
-    const photoW = 520;
-    const photoH = 650;
+    // 7. DEVELOPER PHOTOGRAPH APERTURE (Crisp & High Clarity)
+    const photoX = 1360;
+    const photoY = 320;
+    const photoW = 550;
+    const photoH = 690;
 
-    // Photo Outer Bezel
-    ctx.fillStyle = '#181b24';
-    ctx.roundRect(photoX - 8, photoY - 8, photoW + 16, photoH + 16, 28);
+    // Photo Aperture Background & Bezel
+    ctx.fillStyle = '#141722';
+    ctx.beginPath();
+    ctx.roundRect(photoX - 6, photoY - 6, photoW + 12, photoH + 12, 22);
     ctx.fill();
-    ctx.strokeStyle = 'rgba(56, 189, 248, 0.4)';
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.5)';
     ctx.lineWidth = 3;
     ctx.stroke();
 
-    // Draw Photo if loaded, otherwise placeholder
     if (this.photoImage) {
       ctx.save();
       ctx.beginPath();
-      ctx.roundRect(photoX, photoY, photoW, photoH, 22);
+      ctx.roundRect(photoX, photoY, photoW, photoH, 18);
       ctx.clip();
 
-      // Draw image cropped focused on face & upper torso
       const img = this.photoImage;
       const srcW = img.width;
       const srcH = img.width * (photoH / photoW);
-      const srcY = img.height * 0.05; // start near top of head
+      const srcY = img.height * 0.04;
       ctx.drawImage(img, 0, srcY, srcW, srcH, photoX, photoY, photoW, photoH);
-
-      // Subtle warm vignette on photo edges
-      const photoVignette = ctx.createRadialGradient(
-        photoX + photoW / 2, photoY + photoH / 2, photoW * 0.4,
-        photoX + photoW / 2, photoY + photoH / 2, photoW * 0.75
-      );
-      photoVignette.addColorStop(0, 'rgba(0,0,0,0)');
-      photoVignette.addColorStop(1, 'rgba(0,0,0,0.25)');
-      ctx.fillStyle = photoVignette;
-      ctx.fillRect(photoX, photoY, photoW, photoH);
 
       ctx.restore();
     } else {
-      // Monogram placeholder while image loads
-      ctx.fillStyle = '#141824';
-      ctx.roundRect(photoX, photoY, photoW, photoH, 22);
+      // Clean high-contrast monogram fallback
+      ctx.fillStyle = '#181e2e';
+      ctx.beginPath();
+      ctx.roundRect(photoX, photoY, photoW, photoH, 18);
       ctx.fill();
       ctx.fillStyle = '#38bdf8';
-      ctx.font = 'bold 140px "Space Grotesk", sans-serif';
+      ctx.font = '800 130px "Space Grotesk", sans-serif';
       ctx.textAlign = 'center';
-      ctx.fillText('OG', photoX + photoW / 2, photoY + photoH / 2 + 40);
+      ctx.fillText('OG', photoX + photoW / 2, photoY + photoH / 2 + 45);
       ctx.textAlign = 'left';
     }
 
-    // Photo Tag Badge
+    // Photo Indicator Dot
     ctx.fillStyle = '#10b981';
     ctx.beginPath();
-    ctx.arc(photoX + photoW - 35, photoY + photoH - 35, 16, 0, Math.PI * 2);
+    ctx.arc(photoX + photoW - 32, photoY + photoH - 32, 14, 0, Math.PI * 2);
     ctx.fill();
-    ctx.strokeStyle = '#090a0f';
-    ctx.lineWidth = 4;
+    ctx.strokeStyle = '#0a0d14';
+    ctx.lineWidth = 3;
     ctx.stroke();
 
-    // 8. Developer Name & Role
+    // 8. Developer Name & Role (Large, Bold, High Contrast)
     ctx.fillStyle = '#ffffff';
-    ctx.font = '800 102px "Space Grotesk", sans-serif';
-    ctx.letterSpacing = '-0.03em';
-    ctx.fillText('ONKAR SHIVAJI GUTTI', 140, 780);
+    ctx.font = '800 106px "Space Grotesk", sans-serif';
+    ctx.fillText('ONKAR SHIVAJI GUTTI', 130, 770);
 
     ctx.fillStyle = '#38bdf8';
     ctx.font = 'bold 56px "Space Grotesk", sans-serif';
-    ctx.fillText('Full-Stack & Backend Developer', 140, 860);
+    ctx.fillText('Full-Stack & Backend Developer', 130, 850);
 
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '400 36px "Plus Jakarta Sans", sans-serif';
-    ctx.fillText('Solapur, Maharashtra • B.Tech Computer Science (2024–2027)', 140, 920);
+    ctx.fillStyle = '#cbd5e1';
+    ctx.font = '600 38px "Space Grotesk", sans-serif';
+    ctx.fillText('Solapur, Maharashtra • B.Tech CSE (Class of 2027)', 130, 915);
 
-    // 9. Highlights & Academic Distinction Banner
+    // 9. Verified Academic & Engineering Credentials Box
     const bannerY = 1040;
-    const bannerW = 1768;
-    const bannerH = 460;
+    const bannerW = W - 260;
+    const bannerH = 490;
 
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.035)';
-    ctx.roundRect(140, bannerY, bannerW, bannerH, 24);
+    ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+    ctx.beginPath();
+    ctx.roundRect(130, bannerY, bannerW, bannerH, 20);
     ctx.fill();
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
-    ctx.lineWidth = 2;
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.3)';
+    ctx.lineWidth = 2.5;
     ctx.stroke();
 
-    // Rows of Achievements with Icons
     const rows = [
-      { label: '🥇 ACADEMIC RANK', val: '1st Rank in Diploma in Computer Science (92% Aggregate)', col: '#eab308' },
-      { label: '🏆 INTERNSHIP', val: '1st Prize Winner for MERN Course Platform @ Deram Tech', col: '#10b981' },
-      { label: '⚡ HACKATHONS', val: '3x Competitor • Orchathon (36h), BLDE (36h), SVERI (24h)', col: '#38bdf8' },
-      { label: '🎓 DEGREE TRACK', val: 'B.Tech in Computer Science & Engineering (Expected 2027)', col: '#f8fafc' }
+      { label: 'ACADEMIC RANK:', val: '🥇 1st Rank Across Institution (92% MSBTE Diploma)', col: '#fde047' },
+      { label: 'INTERNSHIP:', val: '🏆 1st Prize Winner for MERN Platform @ Deram Tech', col: '#34d399' },
+      { label: 'HACKATHONS:', val: '⚡ 3x Competitor • Orchathon (36h), BLDE, SVERI', col: '#38bdf8' },
+      { label: 'DEGREE TRACK:', val: '🎓 B.Tech in Computer Science & Engg (Graduating 2027)', col: '#ffffff' }
     ];
 
     rows.forEach((r, i) => {
-      const ry = bannerY + 85 + i * 98;
-      ctx.fillStyle = '#64748b';
-      ctx.font = 'bold 34px "JetBrains Mono", monospace';
-      ctx.fillText(r.label, 180, ry);
+      const ry = bannerY + 84 + i * 105;
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = 'bold 36px "JetBrains Mono", monospace';
+      ctx.fillText(r.label, 170, ry);
 
       ctx.fillStyle = r.col;
-      ctx.font = 'bold 40px "Space Grotesk", sans-serif';
+      ctx.font = 'bold 44px "Space Grotesk", sans-serif';
       ctx.fillText(r.val, 560, ry);
     });
 
-    // 10. Stack Chips Grid
-    ctx.fillStyle = '#cbd5e1';
-    ctx.font = 'bold 40px "Space Grotesk", sans-serif';
-    ctx.fillText('VERIFIED TECHNICAL STACK', 140, 1600);
+    // 10. Verified Technical Capabilities Stack
+    ctx.fillStyle = '#ffffff';
+    ctx.font = '800 44px "Space Grotesk", sans-serif';
+    ctx.fillText('VERIFIED CORE CAPABILITIES', 130, 1610);
 
     const skills = [
       'Node.js', 'Express.js', 'MongoDB', 'React.js',
       'PostgreSQL', 'RESTful APIs', 'JWT Auth', 'Docker',
-      'TypeScript', 'ACID Transactions', 'MVC Pattern'
+      'Java & OOP', 'Database Design', 'TypeScript'
     ];
 
-    let sx = 140;
-    let sy = 1660;
-    ctx.font = 'bold 36px "JetBrains Mono", monospace';
+    let sx = 130;
+    let sy = 1670;
+    ctx.font = 'bold 38px "JetBrains Mono", monospace';
 
     skills.forEach(s => {
       const textW = ctx.measureText(s).width;
-      const chipW = textW + 64;
+      const chipW = textW + 68;
 
-      ctx.fillStyle = '#161922';
-      ctx.roundRect(sx, sy, chipW, 80, 16);
+      ctx.fillStyle = '#111622';
+      ctx.beginPath();
+      ctx.roundRect(sx, sy, chipW, 86, 16);
       ctx.fill();
-      ctx.strokeStyle = 'rgba(56, 189, 248, 0.4)';
-      ctx.lineWidth = 2;
+      ctx.strokeStyle = 'rgba(56, 189, 248, 0.45)';
+      ctx.lineWidth = 2.5;
       ctx.stroke();
 
-      ctx.fillStyle = '#38bdf8';
-      ctx.fillText(s, sx + 32, sy + 54);
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText(s, sx + 34, sy + 58);
 
-      sx += chipW + 28;
-      if (sx > 1700) {
-        sx = 140;
-        sy += 110;
+      sx += chipW + 26;
+      if (sx > W - 320) {
+        sx = 130;
+        sy += 114;
       }
     });
 
     // 11. Security Hologram Seal
-    const holoX = 140;
+    const holoX = 130;
     const holoY = 2240;
     const holoW = 380;
     const holoH = 340;
 
     const holoGrad = ctx.createLinearGradient(holoX, holoY, holoX + holoW, holoY + holoH);
-    holoGrad.addColorStop(0, 'rgba(56, 189, 248, 0.4)');
-    holoGrad.addColorStop(0.3, 'rgba(192, 132, 252, 0.4)');
-    holoGrad.addColorStop(0.7, 'rgba(52, 211, 153, 0.4)');
-    holoGrad.addColorStop(1, 'rgba(251, 191, 36, 0.4)');
+    holoGrad.addColorStop(0, 'rgba(56, 189, 248, 0.35)');
+    holoGrad.addColorStop(0.35, 'rgba(168, 85, 247, 0.35)');
+    holoGrad.addColorStop(0.7, 'rgba(52, 211, 153, 0.35)');
+    holoGrad.addColorStop(1, 'rgba(250, 204, 21, 0.35)');
 
     ctx.fillStyle = holoGrad;
+    ctx.beginPath();
     ctx.roundRect(holoX, holoY, holoW, holoH, 20);
     ctx.fill();
     ctx.strokeStyle = '#ffffff';
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 2.5;
     ctx.stroke();
 
     ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 44px "Space Grotesk", sans-serif';
-    ctx.fillText('VERIFIED', holoX + 80, holoY + 140);
-    ctx.font = '32px "JetBrains Mono", monospace';
-    ctx.fillText('PASS // 2027', holoX + 65, holoY + 220);
+    ctx.font = '800 46px "Space Grotesk", sans-serif';
+    ctx.fillText('VERIFIED', holoX + 85, holoY + 140);
+    ctx.font = 'bold 34px "JetBrains Mono", monospace';
+    ctx.fillText('PASS // 2027', holoX + 68, holoY + 220);
 
-    // 12. Laser Barcode & Coordinates
+    // 12. Laser Barcode & Clean Coordinates
     const barcodeY = 2280;
     ctx.fillStyle = '#ffffff';
-    let bx = 600;
-    while (bx < 1850) {
-      const bw = (Math.random() > 0.45 ? 6 : 14);
+    let bx = 580;
+    const barWidths = [12, 18, 8, 22, 10, 16, 24, 8, 14, 20, 8, 16, 22, 10, 18, 12, 26, 8, 16, 20, 8, 22, 12, 16, 10, 20, 24, 12, 16, 8, 22, 18, 10, 24, 14, 20, 10, 16, 22, 12, 18, 10, 24, 16, 12];
+    barWidths.forEach(bw => {
       ctx.fillRect(bx, barcodeY, bw, 180);
-      bx += bw + (Math.random() > 0.5 ? 8 : 14);
-    }
+      bx += bw + 11;
+    });
 
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = 'bold 40px "JetBrains Mono", monospace';
+    ctx.fillText('PASS ID: OG-SOLAPUR-BTECH-2027-PASS', 580, 2530);
+
+    ctx.fillStyle = '#38bdf8';
     ctx.font = 'bold 36px "JetBrains Mono", monospace';
-    ctx.fillText('PASS ID: OG-SOLAPUR-BTECH-2027-PASS', 600, 2530);
-    ctx.fillText('COORDINATES: 17.6599° N, 75.9064° E', 600, 2590);
+    ctx.fillText('COORDINATES: 17.6599° N, 75.9064° E (SOLAPUR, IN)', 580, 2590);
   }
 
-  createFrontCanvas() {
-    this.frontCanvas = document.createElement('canvas');
-    this.frontCanvas.width = 2048;
-    this.frontCanvas.height = 2800;
-    this.frontCtx = this.frontCanvas.getContext('2d');
-    this.renderFrontContent(this.frontCtx);
+  // Draw Reverse Face Canvas with Clear Engineering Manifesto
+  renderBackContent(ctx) {
+    const W = 2048;
+    const H = 2816;
 
-    const texture = new THREE.CanvasTexture(this.frontCanvas);
-    texture.anisotropy = 16;
-    return texture;
-  }
+    // Deep brushed obsidian base
+    ctx.fillStyle = '#0a0d14';
+    ctx.fillRect(0, 0, W, H);
 
-  redrawFrontCanvas() {
-    if (!this.frontCtx) return;
-    this.renderFrontContent(this.frontCtx);
-  }
+    // Outer border
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+    ctx.lineWidth = 3;
+    ctx.strokeRect(70, 70, W - 140, H - 140);
 
-  // Reverse Side Texture
-  createBackCanvas() {
-    const canvas = document.createElement('canvas');
-    canvas.width = 2048;
-    canvas.height = 2800;
-    const ctx = canvas.getContext('2d');
-
-    // Deep brushed obsidian
-    ctx.fillStyle = '#0a0c10';
-    ctx.fillRect(0, 0, 2048, 2800);
-
-    // Outer frame
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
-    ctx.lineWidth = 4;
-    ctx.strokeRect(80, 80, 1888, 2640);
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.35)';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(86, 86, W - 172, H - 172);
 
     // Magnetic Security Stripe
-    ctx.fillStyle = '#14161f';
-    ctx.fillRect(0, 280, 2048, 300);
-    ctx.fillStyle = '#222736';
-    ctx.fillRect(0, 340, 2048, 180);
+    ctx.fillStyle = '#111520';
+    ctx.fillRect(0, 280, W, 280);
+    ctx.fillStyle = '#1c2233';
+    ctx.fillRect(0, 335, W, 170);
 
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = '#94a3b8';
     ctx.font = 'bold 36px "JetBrains Mono", monospace';
-    ctx.fillText('SECURITY MAGNETIC ENCRYPTION TRACK // ONKAR SHIVAJI GUTTI', 120, 445);
+    ctx.fillText('MAGNETIC ENCRYPTION TRACK // ONKAR SHIVAJI GUTTI // B.TECH CSE 2027', 120, 440);
 
-    // Section 1: Philosophy
+    // Section 1: Philosophy & Manifesto
     ctx.fillStyle = '#38bdf8';
-    ctx.font = 'bold 54px "Space Grotesk", sans-serif';
-    ctx.fillText('DEVELOPER MANIFESTO', 140, 740);
+    ctx.font = '800 56px "Space Grotesk", sans-serif';
+    ctx.fillText('ENGINEERING MANIFESTO', 130, 720);
 
-    ctx.fillStyle = '#cbd5e1';
-    ctx.font = '400 48px "Plus Jakarta Sans", sans-serif';
-    ctx.fillText('"Clean code is not an accident. It comes from deep domain understanding,', 140, 840);
-    ctx.fillText(' disciplined schema modeling, and writing software that solves real problems."', 140, 915);
+    ctx.fillStyle = '#e2e8f0';
+    ctx.font = '500 48px "Plus Jakarta Sans", sans-serif';
+    ctx.fillText('"Clean code is not an accident. It comes from deep domain understanding,', 130, 815);
+    ctx.fillText(' disciplined schema modeling, and writing software that solves real problems."', 130, 885);
 
-    // Section 2: Verified Architectures
+    // Section 2: Authenticated Projects
     ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 52px "Space Grotesk", sans-serif';
-    ctx.fillText('AUTHENTICATED FULL-STACK SYSTEMS:', 140, 1100);
+    ctx.font = '800 52px "Space Grotesk", sans-serif';
+    ctx.fillText('AUTHENTICATED FULL-STACK SYSTEMS:', 130, 1070);
 
     const architectures = [
       { name: 'ApexBank - Secure Enterprise Banking Portal', note: 'MERN Stack • ACID Transaction Guarantees • JWT Token Rotation' },
@@ -418,57 +375,94 @@ export class CyberCore {
     ];
 
     architectures.forEach((a, i) => {
-      const ay = 1220 + i * 200;
-      ctx.fillStyle = '#141722';
-      ctx.roundRect(140, ay, 1768, 150, 18);
+      const ay = 1180 + i * 210;
+      ctx.fillStyle = '#121622';
+      ctx.beginPath();
+      ctx.roundRect(130, ay, W - 260, 160, 18);
       ctx.fill();
-      ctx.strokeStyle = 'rgba(56, 189, 248, 0.25)';
-      ctx.lineWidth = 2;
+      ctx.strokeStyle = 'rgba(56, 189, 248, 0.3)';
+      ctx.lineWidth = 2.5;
       ctx.stroke();
 
       ctx.fillStyle = '#38bdf8';
-      ctx.font = 'bold 44px "Space Grotesk", sans-serif';
-      ctx.fillText(a.name, 180, ay + 65);
+      ctx.font = 'bold 46px "Space Grotesk", sans-serif';
+      ctx.fillText(a.name, 170, ay + 68);
 
-      ctx.fillStyle = '#94a3b8';
-      ctx.font = '36px "JetBrains Mono", monospace';
-      ctx.fillText(a.note, 180, ay + 118);
+      ctx.fillStyle = '#cbd5e1';
+      ctx.font = 'bold 36px "JetBrains Mono", monospace';
+      ctx.fillText(a.note, 170, ay + 124);
     });
 
-    // Section 3: Hackathon Record
+    // Section 3: Hackathon Competitive Record
     ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 52px "Space Grotesk", sans-serif';
-    ctx.fillText('HACKATHON COMPETITIVE RECORD:', 140, 1860);
+    ctx.font = '800 52px "Space Grotesk", sans-serif';
+    ctx.fillText('HACKATHON COMPETITIVE RECORD:', 130, 1880);
 
     const hacks = [
-      '⚡ Orchathon 2026 (36-Hour Sprint • Continuous Deployment)',
-      '⚡ BLDE Vijayapura Hackathon 2025 (36-Hour Sprint • Real-time MVP)',
-      '⚡ SVERI Pandharpur Hackathon 2026 (24-Hour Sprint • Rapid Prototyping)'
+      '⚡ Orchathon 2026 (36-Hour Sprint • Continuous Backend Deployment)',
+      '⚡ BLDE Vijayapura Hackathon 2025 (36-Hour Sprint • Real-time MVP Under Pressure)',
+      '⚡ SVERI Pandharpur Hackathon 2026 (24-Hour Sprint • High-Velocity MVC Prototyping)'
     ];
 
     hacks.forEach((h, i) => {
       ctx.fillStyle = '#f8fafc';
-      ctx.font = 'bold 40px "Space Grotesk", sans-serif';
-      ctx.fillText(h, 140, 1960 + i * 90);
+      ctx.font = 'bold 42px "Space Grotesk", sans-serif';
+      ctx.fillText(h, 130, 1980 + i * 95);
     });
 
-    // Signature Line
+    // Candidate Signature Line
     ctx.strokeStyle = '#475569';
     ctx.lineWidth = 3;
     ctx.beginPath();
-    ctx.moveTo(140, 2440);
-    ctx.lineTo(840, 2440);
+    ctx.moveTo(130, 2450);
+    ctx.lineTo(840, 2450);
     ctx.stroke();
 
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = 'italic 52px "Space Grotesk", cursive';
-    ctx.fillText('Onkar S. Gutti', 200, 2410);
+    ctx.fillStyle = '#38bdf8';
+    ctx.font = 'italic 56px "Space Grotesk", cursive';
+    ctx.fillText('Onkar S. Gutti', 180, 2420);
 
-    ctx.fillStyle = '#64748b';
-    ctx.font = '32px "JetBrains Mono", monospace';
-    ctx.fillText('AUTHORIZED SIGNATURE // VERIFIED CANDIDATE', 140, 2500);
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = 'bold 34px "JetBrains Mono", monospace';
+    ctx.fillText('AUTHORIZED SIGNATURE // VERIFIED CANDIDATE', 130, 2510);
+  }
+
+  createFrontCanvas() {
+    this.frontCanvas = document.createElement('canvas');
+    this.frontCanvas.width = 2048;
+    this.frontCanvas.height = 2816;
+    this.frontCtx = this.frontCanvas.getContext('2d');
+    this.renderFrontContent(this.frontCtx);
+
+    const texture = new THREE.CanvasTexture(this.frontCanvas);
+    texture.colorSpace = THREE.SRGBColorSpace;
+    texture.minFilter = THREE.LinearFilter;
+    texture.magFilter = THREE.LinearFilter;
+    texture.generateMipmaps = false;
+    texture.anisotropy = 16;
+    return texture;
+  }
+
+  redrawFrontCanvas() {
+    if (!this.frontCtx) return;
+    this.renderFrontContent(this.frontCtx);
+    if (this.frontTexture) {
+      this.frontTexture.needsUpdate = true;
+    }
+  }
+
+  createBackCanvas() {
+    const canvas = document.createElement('canvas');
+    canvas.width = 2048;
+    canvas.height = 2816;
+    const ctx = canvas.getContext('2d');
+    this.renderBackContent(ctx);
 
     const texture = new THREE.CanvasTexture(canvas);
+    texture.colorSpace = THREE.SRGBColorSpace;
+    texture.minFilter = THREE.LinearFilter;
+    texture.magFilter = THREE.LinearFilter;
+    texture.generateMipmaps = false;
     texture.anisotropy = 16;
     return texture;
   }
@@ -479,37 +473,35 @@ export class CyberCore {
   }
 
   initPhysicalBadge() {
-    // 1. Physical Badge Core Geometry
     const w = 4.8;
     const h = 6.6;
-    const d = 0.14;
+    const d = 0.12;
 
     const cardGeo = new THREE.BoxGeometry(w, h, d);
 
-    // Titanium Edge Material
+    // Brushed Dark Titanium Edge
     const titaniumMat = new THREE.MeshStandardMaterial({
-      color: 0x181a22,
-      metalness: 0.95,
-      roughness: 0.25,
-      envMapIntensity: 1.5
+      color: 0x1a1d26,
+      metalness: 0.8,
+      roughness: 0.4
     });
 
-    // High Quality Front Material with Specular Sheen
+    // Eye-Pleasing Matte Satin Front Material (NO Blinding Mirror Glare!)
     const frontMat = new THREE.MeshStandardMaterial({
       map: this.frontTexture,
-      metalness: 0.2,
-      roughness: 0.25,
-      clearcoat: 0.8,
-      clearcoatRoughness: 0.15
+      metalness: 0.04,
+      roughness: 0.55,
+      clearcoat: 0.1,
+      clearcoatRoughness: 0.65
     });
 
-    // Back Material
+    // Eye-Pleasing Matte Satin Back Material
     const backMat = new THREE.MeshStandardMaterial({
       map: this.backTexture,
-      metalness: 0.2,
-      roughness: 0.3,
-      clearcoat: 0.6,
-      clearcoatRoughness: 0.2
+      metalness: 0.04,
+      roughness: 0.58,
+      clearcoat: 0.08,
+      clearcoatRoughness: 0.7
     });
 
     const materials = [titaniumMat, titaniumMat, titaniumMat, titaniumMat, frontMat, backMat];
@@ -518,31 +510,29 @@ export class CyberCore {
     this.cardMesh.castShadow = true;
     this.group.add(this.cardMesh);
 
-    // 2. Realistic Heavy Gunmetal Carabiner Hardware
+    // Carabiner Hardware (Refined Warm Gunmetal)
     const hardwareGroup = new THREE.Group();
 
-    // Clip Loop
     const loopGeo = new THREE.TorusGeometry(0.38, 0.07, 16, 32);
     const gunmetalMat = new THREE.MeshStandardMaterial({
-      color: 0xb45309, // Warm Antique Brass / Gunmetal
-      metalness: 0.95,
-      roughness: 0.2
+      color: 0x64748b,
+      metalness: 0.9,
+      roughness: 0.35
     });
     const loop = new THREE.Mesh(loopGeo, gunmetalMat);
     loop.position.set(0, h / 2 + 0.35, 0);
     hardwareGroup.add(loop);
 
-    // Swivel Clasp
     const claspGeo = new THREE.CylinderGeometry(0.12, 0.12, 0.6, 16);
     const clasp = new THREE.Mesh(claspGeo, gunmetalMat);
     clasp.position.set(0, h / 2 + 0.8, 0);
     hardwareGroup.add(clasp);
 
-    // Woven Blue/Navy Orchid Fabric Strap (matching his college lanyard!)
+    // College Fabric Strap
     const strapGeo = new THREE.BoxGeometry(0.55, 3.2, 0.04);
     const strapMat = new THREE.MeshStandardMaterial({
-      color: 0x1e3a8a, // Navy Blue matching Orchid College Lanyard
-      roughness: 0.8
+      color: 0x1e3a8a,
+      roughness: 0.85
     });
     const strap = new THREE.Mesh(strapGeo, strapMat);
     strap.position.set(0, h / 2 + 2.5, 0);
@@ -550,42 +540,42 @@ export class CyberCore {
 
     this.cardMesh.add(hardwareGroup);
 
-    // 3. Glowing Micro LED Indicators (Emerald Status & Cyan Data)
-    const ledGeo = new THREE.SphereGeometry(0.07, 16, 16);
-    const greenLedMat = new THREE.MeshBasicMaterial({ color: 0x10b981 });
+    // Subtle Glowing Micro-LEDs (Soft indicators, NOT blinding hot-spots)
+    const ledGeo = new THREE.SphereGeometry(0.06, 16, 16);
+    const greenLedMat = new THREE.MeshBasicMaterial({ color: 0x34d399 });
     const greenLed = new THREE.Mesh(ledGeo, greenLedMat);
-    greenLed.position.set(w / 2 - 0.45, h / 2 - 0.55, d / 2 + 0.02);
+    greenLed.position.set(w / 2 - 0.45, h / 2 - 0.55, d / 2 + 0.01);
     this.cardMesh.add(greenLed);
 
-    this.greenLight = new THREE.PointLight(0x10b981, 2, 5);
+    this.greenLight = new THREE.PointLight(0x34d399, 0.35, 2);
     this.greenLight.position.copy(greenLed.position);
-    this.greenLight.position.z += 0.1;
+    this.greenLight.position.z += 0.08;
     this.cardMesh.add(this.greenLight);
 
     const cyanLedMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8 });
     const cyanLed = new THREE.Mesh(ledGeo, cyanLedMat);
-    cyanLed.position.set(w / 2 - 0.75, h / 2 - 0.55, d / 2 + 0.02);
+    cyanLed.position.set(w / 2 - 0.75, h / 2 - 0.55, d / 2 + 0.01);
     this.cardMesh.add(cyanLed);
 
-    this.cyanLight = new THREE.PointLight(0x38bdf8, 1.5, 4);
+    this.cyanLight = new THREE.PointLight(0x38bdf8, 0.25, 2);
     this.cyanLight.position.copy(cyanLed.position);
-    this.cyanLight.position.z += 0.1;
+    this.cyanLight.position.z += 0.08;
     this.cardMesh.add(this.cyanLight);
   }
 
   initLighting() {
-    // Studio 3-Point Specular Lighting for Sharp Reflections
-    this.keyLight = new THREE.DirectionalLight(0xffffff, 3.2);
-    this.keyLight.position.set(5, 7, 8);
+    // Soft, Eye-Pleasing Diffused Studio Lighting (No harsh glare hotspots!)
+    this.keyLight = new THREE.DirectionalLight(0xffffff, 1.25);
+    this.keyLight.position.set(4, 5, 6);
     this.group.add(this.keyLight);
 
-    this.blueRim = new THREE.DirectionalLight(0x38bdf8, 2.4);
-    this.blueRim.position.set(-6, -4, 4);
+    this.blueRim = new THREE.DirectionalLight(0x38bdf8, 0.65);
+    this.blueRim.position.set(-5, -3, 3);
     this.group.add(this.blueRim);
 
-    this.amberFill = new THREE.DirectionalLight(0xf59e0b, 1.2);
-    this.amberFill.position.set(0, -6, -5);
-    this.group.add(this.amberFill);
+    this.warmFill = new THREE.DirectionalLight(0xfef3c7, 0.45);
+    this.warmFill.position.set(2, -4, 4);
+    this.group.add(this.warmFill);
   }
 
   flipBadge() {
@@ -593,19 +583,19 @@ export class CyberCore {
   }
 
   update(time) {
-    // Natural suspended cord pendulum physics
-    const floatY = Math.sin(time * 1.8) * 0.12;
+    // Gentle natural suspended cord sway
+    const floatY = Math.sin(time * 1.5) * 0.07;
     this.cardMesh.position.y = floatY;
 
-    // Smooth spring rotation to target face
+    // Smooth spring rotation on flip
     const targetYRot = this.isFlipped ? Math.PI : 0;
-    const sway = Math.sin(time * 0.9) * 0.06;
+    const sway = Math.sin(time * 0.8) * 0.04;
     this.cardMesh.rotation.y += (targetYRot + sway - this.cardMesh.rotation.y) * 0.08;
 
-    // LED Pulses
-    const p1 = 0.8 + Math.sin(time * 4) * 0.4;
-    const p2 = 0.8 + Math.cos(time * 6) * 0.4;
-    if (this.greenLight) this.greenLight.intensity = 2 * p1;
-    if (this.cyanLight) this.cyanLight.intensity = 1.6 * p2;
+    // Gentle micro-LED breathing
+    const p1 = 0.85 + Math.sin(time * 3) * 0.15;
+    const p2 = 0.85 + Math.cos(time * 3.5) * 0.15;
+    if (this.greenLight) this.greenLight.intensity = 0.35 * p1;
+    if (this.cyanLight) this.cyanLight.intensity = 0.25 * p2;
   }
 }

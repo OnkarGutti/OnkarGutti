@@ -26,9 +26,9 @@ export class Hero3DScene {
     // Scene
     this.scene = new THREE.Scene();
 
-    // Camera
-    this.camera = new THREE.PerspectiveCamera(42, width / height, 0.1, 100);
-    this.camera.position.set(0, 0, 12);
+    // Camera - Closer distance for razor-sharp legibility of card details
+    this.camera = new THREE.PerspectiveCamera(38, width / height, 0.1, 100);
+    this.camera.position.set(0, 0, 10.4);
 
     // High performance WebGLRenderer with Antialiasing & Alpha
     this.renderer = new THREE.WebGLRenderer({
@@ -38,12 +38,12 @@ export class Hero3DScene {
       powerPreference: 'high-performance'
     });
     this.renderer.setSize(width, height);
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2.5));
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    this.renderer.toneMappingExposure = 1.15;
+    this.renderer.toneMappingExposure = 1.0;
 
-    // Studio Ambient Light
-    const ambient = new THREE.AmbientLight(0xffffff, 1.4);
+    // Studio Ambient Light - Soft, balanced, non-blinding
+    const ambient = new THREE.AmbientLight(0xffffff, 1.0);
     this.scene.add(ambient);
 
     // 3D Developer Pass
@@ -176,7 +176,7 @@ export class Hero3DScene {
     }
 
     // Depth zoom on scroll
-    const scrollZ = 12 + this.scrollProgress * 2;
+    const scrollZ = 10.4 + this.scrollProgress * 2;
     this.camera.position.z += (scrollZ - this.camera.position.z) * 0.05;
 
     this.renderer.render(this.scene, this.camera);
