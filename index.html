@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Onkar Shivaji Gutti | 3D MERN Stack & Backend Engineer Portfolio</title>
+  <meta name="description" content="Portfolio of Onkar Shivaji Gutti - MERN Stack Developer & Backend Specialist. 1st Rank SPM Polytechnic, 1st Prize Deram Technology Internship. Interactive 3D WebGL experience." />
+  <meta name="keywords" content="Onkar Gutti, MERN Stack, Backend Developer, Node.js, Express, MongoDB, React, Solapur, WebGL, 3D Portfolio" />
+  <meta name="author" content="Onkar Shivaji Gutti" />
+
+  <!-- Google Fonts Preconnect & Load -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+<body>
+
+  <!-- Ambient Glowing Mesh Background -->
+  <div class="background-glow" aria-hidden="true">
+    <div class="glow-orb-1"></div>
+    <div class="glow-orb-2"></div>
+    <div class="glow-orb-3"></div>
+  </div>
+  <div class="cyber-grid-overlay" aria-hidden="true"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <nav class="nav-container" aria-label="Main Navigation">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-badge">OG</span>
+        <span>ONKAR.DEV</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#terminal" class="nav-link">Terminal</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="audio-toggle" class="btn-audio" aria-label="Toggle Sound Effects">
+          <span class="audio-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <line x1="23" y1="9" x2="17" y2="15"></line>
+              <line x1="17" y1="9" x2="23" y2="15"></line>
+            </svg>
+          </span>
+          <span class="audio-status">FX OFF</span>
+        </button>
+
+        <div class="status-indicator">
+          <span class="status-dot"></span>
+          <span>AVAILABLE</span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Hero Content -->
+          <div class="hero-content">
+            <div class="hero-greeting">
+              <span>⚡ SYSTEM ONLINE // ARCHITECT</span>
+            </div>
+            <h1 class="hero-name">
+              ONKAR SHIVAJI <span class="gradient-text">GUTTI</span>
+            </h1>
+            <div class="hero-headline">
+              <span id="typing-text"></span><span class="typing-cursor">|</span>
+            </div>
+            <p class="hero-bio">
+              Engineering high-concurrency backend services, robust RESTful APIs, and responsive full-stack applications with Node.js, Express, MongoDB, and React. Passionate about system design, microservices logic, and clean MVC architectures.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="#projects" class="btn-primary">
+                <span>Explore Projects</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+
+              <a href="#terminal" class="btn-secondary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="4 17 10 11 4 5"></polyline>
+                  <line x1="12" y1="19" x2="20" y2="19"></line>
+                </svg>
+                <span>Launch CLI Terminal</span>
+              </a>
+            </div>
+
+            <div class="hero-socials">
+              <button class="social-icon-btn" data-copy="onkar.gutti.dev@gmail.com" title="Copy Email">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </button>
+              <button class="social-icon-btn" data-copy="+91 98765 43210" title="Copy Phone">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </button>
+              <a href="https://github.com" target="_blank" rel="noopener" class="social-icon-btn" title="GitHub">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-icon-btn" title="LinkedIn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero 3D Interactive Canvas -->
+          <div class="hero-canvas-wrap">
+            <span class="canvas-hint">DRAG TO ROTATE 3D CORE</span>
+            <canvas id="hero-3d-canvas" aria-label="Interactive 3D Cyber Core Model"></canvas>
+            
+            <!-- 3D Shader / Mode Switcher -->
+            <div class="mode-switcher">
+              <button class="mode-btn active" data-3d-mode="quantum">Quantum</button>
+              <button class="mode-btn" data-3d-mode="cyber">Cyber</button>
+              <button class="mode-btn" data-3d-mode="matrix">Matrix</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Academic & Engineering Stats Strip -->
+        <div id="about" class="stats-strip">
+          <div class="stat-card">
+            <div class="stat-value">#1</div>
+            <div class="stat-label">Academic Rank Holder</div>
+            <div class="stat-sub">SPM Polytechnic CS • 92% Aggregate</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">1st Prize</div>
+            <div class="stat-label">Internship Award</div>
+            <div class="stat-sub">Deram Tech Course Management System</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">3+</div>
+            <div class="stat-label">Hackathon Sprints</div>
+            <div class="stat-sub">Orchathon (36h), BLDE, SVERI (24h)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">100%</div>
+            <div class="stat-label">Production Mindset</div>
+            <div class="stat-sub">REST APIs, JWT, MVC & Modular Architecture</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS MATRIX & 3D CONSTELLATION -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-tag">Technical Competencies</div>
+        <h2 class="section-title">ENGINEERED <span class="gradient-text">TECH STACK</span></h2>
+        <p class="section-desc">
+          Proficiency cultivated through extensive hands-on development, corporate training at Zensar, and competitive hackathons.
+        </p>
+
+        <div class="skills-wrapper">
+          <!-- Left: Filterable Skill Cards -->
+          <div>
+            <div class="skill-tabs" role="tablist">
+              <button class="tab-btn active" data-category="backend">Backend & APIs</button>
+              <button class="tab-btn" data-category="database">Databases</button>
+              <button class="tab-btn" data-category="frontend">Frontend & UI</button>
+              <button class="tab-btn" data-category="languages">Core Languages</button>
+              <button class="tab-btn" data-category="devops">DevOps & Tools</button>
+            </div>
+
+            <div id="skills-display" class="skill-grid">
+              <!-- Dynamically populated via JS -->
+            </div>
+          </div>
+
+          <!-- Right: 3D Skill Constellation Galaxy -->
+          <div class="skills-galaxy-box">
+            <div class="galaxy-title">3D Skill Constellation</div>
+            <div class="galaxy-sub">Drag sphere to explore tech topography</div>
+            <canvas id="skills-canvas" aria-label="Interactive 3D Skill Sphere"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS SHOWCASE -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-tag">Featured Architectures</div>
+        <h2 class="section-title">MERN & <span class="gradient-text">BACKEND SYSTEMS</span></h2>
+        <p class="section-desc">
+          Production-grade applications featuring RESTful endpoints, ACID transactions, AI prompt orchestration, and modular MVC architectures.
+        </p>
+
+        <div id="projects-container" class="projects-grid">
+          <!-- Dynamically populated via JS with 3D Tilt cards -->
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE, HACKATHONS & EDUCATION -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-tag">Career Trajectory</div>
+        <h2 class="section-title">EXPERIENCE & <span class="gradient-text">EDUCATION</span></h2>
+        <p class="section-desc">
+          Professional training, academic milestones, and rapid hackathon engineering.
+        </p>
+
+        <!-- Vertical Timeline -->
+        <div class="timeline-wrapper">
+          <div class="timeline-line"></div>
+
+          <!-- Deram Technology -->
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <div class="timeline-role">MERN Stack Developer Intern</div>
+                <span class="timeline-badge">🏆 1st Prize Winner</span>
+              </div>
+              <div class="timeline-org">Deram Technology</div>
+              <div class="timeline-period">1-Month Internship</div>
+              <p class="timeline-desc">
+                Developed a full-featured MERN Stack Course Management Website. Implemented modular backend routing, secure user enrollment flows, and dynamic course cataloging. Awarded 1st Prize for superior project architecture and presentation.
+              </p>
+            </div>
+          </div>
+
+          <!-- Zensar Technologies -->
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <div class="timeline-role">Technical & Soft Skills Training</div>
+                <span class="timeline-badge">Corporate Ready</span>
+              </div>
+              <div class="timeline-org">Zensar Technologies</div>
+              <div class="timeline-period">February 2026 • 8 Days Intensive</div>
+              <p class="timeline-desc">
+                Comprehensive training covering workplace communication (2 days) and technical skills (6 days), including Core Java, Advanced Java, SQL, and Python with hands-on coding and practical sessions.
+              </p>
+            </div>
+          </div>
+
+          <!-- Aptech -->
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <div class="timeline-role">Pre-Placement Problem Solving & Aptitude</div>
+                <span class="timeline-badge">Placement Prepared</span>
+              </div>
+              <div class="timeline-org">Aptech</div>
+              <div class="timeline-period">March 2026</div>
+              <p class="timeline-desc">
+                Completed pre-placement training focused on aptitude, logical reasoning, and rapid analytical problem-solving skills relevant to corporate placement assessments.
+              </p>
+            </div>
+          </div>
+
+          <!-- B.Tech Degree -->
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <div class="timeline-role">B.Tech in Computer Science & Engineering</div>
+                <span class="timeline-badge">Expected 2027</span>
+              </div>
+              <div class="timeline-org">N. K. Orchid College of Engineering, Solapur</div>
+              <div class="timeline-period">Undergraduate Studies</div>
+              <p class="timeline-desc">
+                Deepening knowledge in Operating Systems, Database Management, System Architecture, Algorithm Design, and Distributed Cloud Computing.
+              </p>
+            </div>
+          </div>
+
+          <!-- Diploma 1st Rank -->
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <div class="timeline-role">Diploma in Computer Science – 92%</div>
+                <span class="timeline-badge">🥇 1st Rank in Academics</span>
+              </div>
+              <div class="timeline-org">SPM Polytechnic, Kumthe</div>
+              <div class="timeline-period">Completed 2024</div>
+              <p class="timeline-desc">
+                Achieved 1st Rank across the diploma program with a 92% aggregate. Built a rock-solid foundation in Object-Oriented Programming, C++, Java, DBMS, and Web Basics.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hackathons Showcase Grid -->
+        <h3 style="font-size: 1.5rem; margin-top: 60px; margin-bottom: 20px;">HACKATHON SPRINTS</h3>
+        <div class="hackathon-grid">
+          <div class="hackathon-card">
+            <div class="hack-year">2026 • 36 HOURS</div>
+            <div class="hack-title">Orchathon</div>
+            <div class="hack-type">36-Hour Hackathon</div>
+            <div class="hack-desc">Collaborated in an intensive sprint developing full-stack architectures under pressure with continuous feature deployments.</div>
+          </div>
+          <div class="hackathon-card">
+            <div class="hack-year">2025 • 36 HOURS</div>
+            <div class="hack-title">BLDE Vijayapura</div>
+            <div class="hack-type">36-Hour Hackathon</div>
+            <div class="hack-desc">Engineered an end-to-end prototype tackling real-world community problem statements with rapid REST API prototyping.</div>
+          </div>
+          <div class="hackathon-card">
+            <div class="hack-year">2026 • 24 HOURS</div>
+            <div class="hack-title">SVERI Pandharpur</div>
+            <div class="hack-type">24-Hour Hackathon</div>
+            <div class="hack-desc">Built a high-performance web MVP with clean modular controllers, fast query response times, and an intuitive UI.</div>
+          </div>
+        </div>
+
+        <!-- Certifications -->
+        <h3 style="font-size: 1.5rem; margin-top: 60px; margin-bottom: 20px;">VERIFIED CERTIFICATIONS</h3>
+        <div id="certs-container" class="certs-grid">
+          <!-- Dynamically populated via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE CLI TERMINAL PLAYGROUND -->
+    <section id="terminal">
+      <div class="container">
+        <div class="section-tag">Interactive Playground</div>
+        <h2 class="section-title">DEVELOPER <span class="gradient-text">CLI TERMINAL</span></h2>
+        <p class="section-desc">
+          Test backend endpoints, inspect raw resumes, or simulate hiring webhooks in an interactive shell.
+        </p>
+
+        <div class="terminal-window">
+          <div class="terminal-topbar">
+            <div class="terminal-dots">
+              <span class="preview-dot dot-red"></span>
+              <span class="preview-dot dot-yellow"></span>
+              <span class="preview-dot dot-green"></span>
+            </div>
+            <div class="terminal-title">onkar@portfolio-v2: ~ (zsh)</div>
+            <div class="terminal-quick-cmds">
+              <button class="cmd-chip" data-cmd="help">help</button>
+              <button class="cmd-chip" data-cmd="skills">skills</button>
+              <button class="cmd-chip" data-cmd="projects">projects</button>
+              <button class="cmd-chip" data-cmd="curl /hire">curl /hire</button>
+            </div>
+          </div>
+
+          <div id="terminal-output" class="terminal-body">
+            <!-- Terminal outputs injected dynamically -->
+          </div>
+
+          <form id="terminal-form" class="terminal-input-row">
+            <span class="terminal-prompt-prefix">onkar@portfolio:~$</span>
+            <input type="text" id="terminal-input" class="terminal-input" placeholder="Type a command (e.g., 'help', 'bio', 'projects', 'curl /hire')..." autocomplete="off" spellcheck="false" />
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & CONNECT -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-tag">Direct Link</div>
+        <h2 class="section-title">LET'S BUILD <span class="gradient-text">SOMETHING EXCEPTIONAL</span></h2>
+        <p class="section-desc">
+          Open to full-time Backend and Full-Stack Engineering roles, internships, and high-impact software projects.
+        </p>
+
+        <div class="contact-wrapper">
+          <!-- Contact Channels Card -->
+          <div class="contact-info-card">
+            <h3 style="font-size: 1.4rem; margin-bottom: 20px;">Direct Channels</h3>
+
+            <div class="contact-meta-item">
+              <div class="contact-meta-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-meta-label">EMAIL ADDRESS</div>
+                <div class="contact-meta-val">
+                  <span>onkar.gutti.dev@gmail.com</span>
+                  <button class="copy-mini-btn" data-copy="onkar.gutti.dev@gmail.com">Copy</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-meta-item">
+              <div class="contact-meta-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-meta-label">PHONE / WHATSAPP</div>
+                <div class="contact-meta-val">
+                  <span>+91 98765 43210</span>
+                  <button class="copy-mini-btn" data-copy="+91 98765 43210">Copy</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-meta-item">
+              <div class="contact-meta-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-meta-label">LOCATION</div>
+                <div class="contact-meta-val">Solapur, Maharashtra, India</div>
+              </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+              <button class="btn-secondary" style="width: 100%; justify-content: center;" data-copy="Onkar Shivaji Gutti - MERN Stack Developer | Resume Available on Request">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span>Copy Resume Profile Link</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <form id="contact-form" class="contact-form">
+            <div class="form-group">
+              <label for="name" class="form-label">YOUR FULL NAME</label>
+              <input type="text" id="name" class="form-input" placeholder="e.g. Alex Morgan" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">EMAIL ADDRESS</label>
+              <input type="email" id="email" class="form-input" placeholder="e.g. alex@company.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="subject" class="form-label">SUBJECT / OPPORTUNITY</label>
+              <input type="text" id="subject" class="form-input" placeholder="e.g. Full-Stack / Backend Engineering Role" required />
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="form-label">PROJECT OR ROLE DETAILS</label>
+              <textarea id="message" class="form-textarea" placeholder="Describe the role, timeline, or engineering challenge..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+              <span>Send Message</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-text">
+        © 2026 Onkar Shivaji Gutti. Designed with high-performance 3D WebGL & Modern CSS.
+      </div>
+      <a href="#hero" class="back-to-top-btn" aria-label="Scroll to top">
+        <span>Back to Top</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="12" y1="19" x2="12" y2="5"></line>
+          <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- INTERACTIVE REST API TESTER MODAL -->
+  <div id="api-modal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-topbar">
+        <div>
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-cyan);">API ARCHITECTURE TESTER</div>
+          <div id="modal-project-title" class="modal-title">Project Endpoint</div>
+        </div>
+        <button id="close-modal" class="modal-close-btn" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="api-request-bar">
+          <span id="api-method" class="method-tag">POST</span>
+          <span id="api-endpoint" class="endpoint-display">/api/v1/accounts/transfer</span>
+          <button id="api-send-btn" class="btn-primary" style="padding: 9px 18px; font-size: 0.85rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            <span>Send Request</span>
+          </button>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">JSON REQUEST PAYLOAD</span>
+          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-cyan);">Headers: Authorization Bearer (Simulated)</span>
+        </div>
+        <textarea id="api-payload" class="api-payload-box"></textarea>
+
+        <div class="api-status-row">
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">SERVER RESPONSE</span>
+          <div style="display: flex; gap: 8px;">
+            <span id="api-status-badge" class="status-tag idle">STATUS: IDLE</span>
+            <span id="api-time-badge" class="status-tag idle">0ms</span>
+          </div>
+        </div>
+        <pre id="api-response" class="api-response-box">// Click "Send Request" to simulate backend execution...</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- Main JavaScript App Bundle -->
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
