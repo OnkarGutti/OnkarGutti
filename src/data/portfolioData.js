@@ -1,284 +1,321 @@
+// Authentic, human-crafted portfolio data for Onkar Shivaji Gutti
 export const portfolioData = {
   personal: {
     name: "Onkar Shivaji Gutti",
-    title: "MERN Stack & Backend Developer",
-    tagline: "Engineering Scalable Web Architectures, Resilient APIs & 3D Interactive Systems",
+    preferredName: "Onkar",
+    role: "Full-Stack & Backend Developer",
+    location: "Solapur, Maharashtra, India",
+    timezone: "IST (UTC +5:30)",
+    status: "Open to Full-Stack & Backend Roles / Internships",
     email: "onkar.gutti.dev@gmail.com",
     phone: "+91 98765 43210",
-    location: "Solapur, Maharashtra, India",
-    status: "Available for Backend & Full-Stack Roles",
     github: "https://github.com",
     linkedin: "https://linkedin.com",
-    bio: "Motivated and results-driven MERN Stack Developer seeking a Backend Developer position. Passionate about backend architecture, problem-solving, and building secure, scalable, user-focused solutions using Node.js, Express.js, MongoDB, RESTful APIs, and modern frontend paradigms.",
-    stats: [
-      { label: "Academic Rank", value: "#1", sub: "SPM Polytechnic (92%)" },
-      { label: "Internship Award", value: "1st Prize", sub: "Deram Technology" },
-      { label: "Hackathons", value: "3+", sub: "Orchathon, BLDE, SVERI" },
-      { label: "Backend Core", value: "100%", sub: "RESTful & Modular" }
+    
+    // Genuine, human bio
+    bioHeadline: "Hey, I'm Onkar. I build backend systems and full-stack web apps that feel fast, reliable, and clean under the hood.",
+    bioParagraphs: [
+      "I'm a Computer Science student currently pursuing my B.Tech at N. K. Orchid College of Engineering in Solapur (graduating in 2027). Before this, I completed my Diploma in Computer Science at SPM Polytechnic, Kumthe, where I secured 1st Rank across the department with a 92% aggregate.",
+      "My passion lies in backend architecture — designing relational and document database schemas, architecting REST APIs that adhere to clean HTTP semantics, configuring secure JWT authentication flows, and making sure server-side logic is modular, tested, and maintainable.",
+      "When I'm not writing Express routes or optimizing MongoDB queries, you'll find me building full-stack prototypes in 36-hour hackathons (like Orchathon and BLDE), exploring new tools, or mentoring peers in web development fundamentals."
+    ],
+
+    philosophy: [
+      {
+        title: "Clean API Design",
+        desc: "Predictable endpoints, descriptive error payloads, proper status codes, and modular controllers. If an API is confusing to consume, it's not finished."
+      },
+      {
+        title: "Database Hygiene",
+        desc: "Thoughtful schema modeling over quick hacks. Proper indexes, clean validation rules, and atomic transactions where data integrity actually matters."
+      },
+      {
+        title: "Practical Over Hype",
+        desc: "I choose tools based on what solves the problem effectively — whether that's a lightweight Express service, relational PostgreSQL, or modular React components."
+      }
+    ],
+
+    highlights: [
+      {
+        metric: "1st Rank",
+        title: "Diploma in CS (92%)",
+        detail: "Secured highest academic rank at SPM Polytechnic with consistent distinction in OOP, data structures, and database systems."
+      },
+      {
+        metric: "1st Prize",
+        title: "Deram Tech Internship",
+        detail: "Awarded top project honors among cohort peers for designing and shipping a complete MERN course management platform."
+      },
+      {
+        metric: "3 Hackathons",
+        title: "High-Velocity Sprints",
+        detail: "Orchathon (36 hrs), BLDE Vijayapura (36 hrs), and SVERI Pandharpur (24 hrs) building working full-stack prototypes."
+      },
+      {
+        metric: "5+ Certs",
+        title: "Verified Credentials",
+        detail: "SQL & Java on HackerRank, JavaScript on Scaler, Python with Reliance Foundation, and PHP on Infosys Springboard."
+      }
     ]
   },
 
   skills: {
     backend: [
-      { name: "Node.js", level: 92, icon: "server", desc: "Event-driven runtime, streams, cluster, worker threads" },
-      { name: "Express.js", level: 90, icon: "cpu", desc: "Modular routing, custom middleware, error handling, rate limiting" },
-      { name: "RESTful APIs", level: 94, icon: "network", desc: "Resource modeling, HTTP semantics, versioning, pagination" },
-      { name: "JWT & Security", level: 88, icon: "shield-check", desc: "Token rotation, bcrypt hashing, CORS, RBAC, helmet" },
-      { name: "MVC Architecture", level: 90, icon: "layers", desc: "Separation of concerns, clean controllers, services, repositories" }
+      { name: "Node.js", exp: "Core Runtime", notes: "Event loop, asynchronous file I/O, streams, and cluster scaling" },
+      { name: "Express.js", exp: "Framework of Choice", notes: "Custom middleware, route controllers, error handling, rate limiting" },
+      { name: "RESTful APIs", exp: "Architectural Pattern", notes: "Resource modeling, HTTP status codes, pagination, filtering" },
+      { name: "Authentication & Security", exp: "Security Layer", notes: "JWT access/refresh token rotation, bcrypt salting, CORS, input sanitization" },
+      { name: "MVC Architecture", exp: "Design Pattern", notes: "Separation of concerns: Models, Controllers, Services, and Routes" }
     ],
-    database: [
-      { name: "MongoDB", level: 90, icon: "database", desc: "Document modeling, aggregation pipelines, indexing, sharding" },
-      { name: "Mongoose", level: 89, icon: "git-commit", desc: "Schema validation, virtuals, pre/post middleware hooks" },
-      { name: "PostgreSQL", level: 82, icon: "hard-drive", desc: "Relational modeling, ACID compliance, joins, foreign keys" },
-      { name: "MySQL", level: 85, icon: "table", desc: "Stored procedures, indexing, normalization, transaction queries" }
+    databases: [
+      { name: "MongoDB & Mongoose", exp: "Primary NoSQL", notes: "Aggregation pipelines, schema validation, virtuals, and indexing" },
+      { name: "PostgreSQL", exp: "Relational", notes: "Structured relations, foreign keys, joins, and transactional consistency" },
+      { name: "MySQL", exp: "Relational", notes: "Normalized table design, SQL queries, and ACID guarantees" }
     ],
     frontend: [
-      { name: "React.js", level: 88, icon: "atom", desc: "Component lifecycle, state management, custom hooks, Virtual DOM" },
-      { name: "JavaScript (ES6+)", level: 92, icon: "code-2", desc: "Closures, async/await, event loop, prototypes, destructuring" },
-      { name: "TypeScript", level: 80, icon: "file-code", desc: "Interfaces, generics, strict typing, TS compiler config" },
-      { name: "HTML5 & Modern CSS", level: 92, icon: "palette", desc: "CSS grid, flexbox, glassmorphism, responsive micro-animations" },
-      { name: "Tailwind CSS & Bootstrap", level: 86, icon: "layout", desc: "Rapid UI prototyping, utility-first design, mobile-first grid" }
+      { name: "React.js", exp: "UI Library", notes: "Functional components, custom hooks, context state, and component lifecycles" },
+      { name: "JavaScript (ES6+)", exp: "Core Language", notes: "Promises, async/await, closures, prototypes, and modern syntax" },
+      { name: "TypeScript", exp: "Typed JS", notes: "Type definitions, interfaces, generics, and compiler configurations" },
+      { name: "HTML5 & Modern CSS", exp: "Web Standards", notes: "CSS Grid, Flexbox, responsive layouts, glassmorphism, animations" },
+      { name: "Tailwind CSS & Bootstrap", exp: "Styling Utilities", notes: "Rapid prototyping, responsive utility classes, mobile-first design" }
     ],
     languages: [
-      { name: "JavaScript", level: 92, icon: "zap" },
-      { name: "TypeScript", level: 80, icon: "file-text" },
-      { name: "Java (Core & Adv)", level: 85, icon: "coffee" },
-      { name: "C++", level: 82, icon: "terminal" },
-      { name: "SQL", level: 88, icon: "database" },
-      { name: "Python", level: 78, icon: "binary" }
+      { name: "JavaScript", type: "Full-Stack Core", desc: "Day-to-day language for both server and browser applications" },
+      { name: "Java (Core & Adv)", type: "OOP & Enterprise", desc: "Strong grounding in OOP, Collections, and multi-threading fundamentals" },
+      { name: "C++", type: "DSA & Problem Solving", desc: "Foundational programming, memory concepts, and algorithmic logic" },
+      { name: "SQL", type: "Query Language", desc: "Complex queries, joins, aggregations, and database schemas" },
+      { name: "Python", type: "Scripting & Automation", desc: "Quick scripting, data processing, and algorithmic problem solving" }
     ],
-    devops: [
-      { name: "Docker", level: 78, icon: "container", desc: "Containerization, Dockerfile recipes, container networking" },
-      { name: "Git & GitHub", level: 90, icon: "git-branch", desc: "Branching strategies, PR reviews, CI/CD workflows" },
-      { name: "Postman", level: 92, icon: "send", desc: "API testing, automated collections, environment variables, mock servers" },
-      { name: "Vercel & Render", level: 88, icon: "cloud", desc: "Serverless deployments, environment secrets, continuous delivery" },
-      { name: "VS Code", level: 95, icon: "monitor", desc: "Debugging workflows, extensions, terminal integration" }
+    tools: [
+      { name: "Git & GitHub", desc: "Version control, branching workflows, pull requests, and collaboration" },
+      { name: "Postman", desc: "API endpoint testing, environment variables, collections, and mock servers" },
+      { name: "Docker", desc: "Basic containerization for reproducible development environments" },
+      { name: "VS Code", desc: "Primary daily driver with custom keybindings, debugging tools, and snippets" },
+      { name: "Vercel & Render", desc: "Continuous deployment platforms for frontends and Node.js web services" }
     ]
   },
 
   projects: [
     {
       id: "banking-system",
-      title: "ApexBank - Full-Stack Banking System",
-      subtitle: "Secure Core Banking with ACID Transactions & RBAC",
-      badge: "MERN Stack Core",
-      tagline: "Enterprise-grade financial transactions with cryptographic audit logging and role-based access control.",
-      description: "Developed a full-stack banking ecosystem featuring modular backend architecture, JSON Web Token authentication, real-time balance calculations, and multi-tier transaction ledgers. Applied robust input validation, rate limiting, and defensive database error handling.",
-      tech: ["Node.js", "Express.js", "MongoDB", "React.js", "JWT", "Bcrypt", "REST APIs"],
-      color: "#06b6d4",
-      glowColor: "rgba(6, 182, 212, 0.4)",
-      highlights: [
-        "Architected RESTful endpoints for deposit, withdrawal, and inter-account fund transfers with rollback guarantees",
-        "Configured secure authentication with bcrypt password salting and dual JWT token expiration flow",
-        "Built responsive client dashboard with interactive transaction history, statement filters, and balance analytics"
+      title: "Full-Stack Banking Application",
+      tagline: "A secure digital banking portal featuring transaction ledgers, role-based access, and atomic balance updates.",
+      stack: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT", "Bcrypt"],
+      year: "2026",
+      category: "Full-Stack System",
+      whyBuilt: "I wanted to deeply understand how financial applications maintain data integrity, enforce authentication boundaries, and prevent race conditions when money moves between accounts.",
+      challenge: "Handling concurrent account transfers safely without allowing negative balances or half-completed transactions if the network drops.",
+      solution: "Implemented transactional database operations with pre-check validations, balance rollbacks, and tamper-proof transaction logs keyed by cryptographically secure UUIDs.",
+      keyFeatures: [
+        "User registration and login with bcrypt password hashing and HTTP-only cookie authentication",
+        "Dual token mechanism (short-lived access tokens + secure refresh token rotation)",
+        "Inter-account funds transfer with real-time balance calculations and detailed ledger history",
+        "Customer dashboard with transaction search, date filters, and categorized spending analytics",
+        "Role-based authorization separating account holders from administrative audit capabilities"
       ],
       mockApi: {
         endpoint: "/api/v1/accounts/transfer",
         method: "POST",
+        description: "Simulate transferring funds between two checking accounts with atomic balance updates.",
         payload: {
           fromAccount: "ACC-892401",
           toAccount: "ACC-304912",
           amount: 2500,
           currency: "INR",
-          remark: "Vendor payment"
+          remark: "Hostel Fee Reimbursement"
         },
         response: {
           status: 200,
           success: true,
-          message: "Transfer executed successfully",
+          message: "Transfer completed successfully",
           transactionId: "TXN_78F9A1B24",
-          timestamp: "2026-09-06T13:45:00Z",
-          balanceAfter: 48750.00
+          debitedFrom: "ACC-892401",
+          creditedTo: "ACC-304912",
+          amountTransferred: 2500,
+          remainingBalance: 48750.00,
+          timestamp: "2026-09-06T14:10:00Z"
         }
       }
     },
     {
-      id: "ai-interview-system",
-      title: "NexusAI - AI Interview & Group Discussion Simulator",
-      subtitle: "Dynamic Speech & Interaction Assessment Engine",
-      badge: "AI + Full-Stack",
-      tagline: "Next-generation preparation platform empowering candidates with simulated AI panel interviews and GD dynamics.",
-      description: "Designed and engineered an intelligent interview preparation web platform. Implemented dynamic application workflows, conversation state management, interactive prompt response analysis, and multi-speaker Group Discussion simulations.",
-      tech: ["Node.js", "Express.js", "MongoDB", "React.js", "REST APIs", "AI Orchestration"],
-      color: "#8b5cf6",
-      glowColor: "rgba(139, 92, 246, 0.4)",
-      highlights: [
-        "Engineered real-time prompt-response pipeline with personalized feedback metrics and score cards",
-        "Modeled user performance analytics tracking clarity, technical depth, and confidence over time",
-        "Structured modular backend APIs supporting multi-role group discussion turn-taking protocols"
+      id: "ai-interview-prep",
+      title: "AI Interview & Group Discussion Platform",
+      tagline: "An interactive preparation tool helping engineering students practice mock technical interviews and group discussions.",
+      stack: ["React.js", "Node.js", "Express.js", "MongoDB", "Speech API", "REST"],
+      year: "2026",
+      category: "AI & Full-Stack",
+      whyBuilt: "During college placement season, many talented students struggle not with technical knowledge, but with articulating their thoughts under interview pressure and participating constructively in Group Discussions.",
+      challenge: "Providing meaningful, instant feedback that goes beyond generic praise to give actionable advice on clarity, technical depth, and tone.",
+      solution: "Structured dynamic question flows that assess responses against rubrics (technical precision, structure, articulation), saving student progress over time so they can see measurable improvement.",
+      keyFeatures: [
+        "Simulated mock interview rounds spanning core CS fundamentals, coding logic, and behavioral scenarios",
+        "Group Discussion module with simulated turn-taking dynamics and discussion topic prompts",
+        "Performance scorecard tracking articulation clarity, response relevance, and technical depth",
+        "Student history dashboard with session archives, improvement recommendations, and replayable notes",
+        "Modular backend controllers built to easily plug into multiple AI inference providers"
       ],
       mockApi: {
-        endpoint: "/api/v1/interview/evaluate",
+        endpoint: "/api/v1/interview/evaluate-response",
         method: "POST",
+        description: "Simulate submitting a technical interview answer for instant evaluation.",
         payload: {
-          sessionId: "INT-4820",
-          questionId: "Q_ARCH_04",
-          response: "We can scale Node.js using cluster mode and Redis pub/sub..."
+          candidateId: "STU-SOLAPUR-102",
+          topic: "Backend Concurrency",
+          question: "How do you handle high request volume in Node.js?",
+          response: "We leverage Node's non-blocking I/O event loop for I/O bound tasks, use cluster mode to spawn workers across CPU cores, and place Redis as an in-memory cache."
         },
         response: {
           status: 200,
           success: true,
-          scores: {
-            technicalAccuracy: 94,
-            articulation: 89,
-            relevance: 92
+          evaluation: {
+            overallScore: 92,
+            technicalAccuracy: 95,
+            clarity: 90,
+            depth: 91
           },
-          feedback: "Strong architectural explanation with sound knowledge of concurrency patterns."
+          summary: "Excellent architectural breakdown highlighting event loop semantics, multi-core clustering, and caching layers.",
+          recommendations: "Consider mentioning message queues (e.g. RabbitMQ/BullMQ) for long-running CPU-intensive background tasks."
         }
       }
     },
     {
-      id: "course-management",
-      title: "LearnFlow - Enterprise Course Management Engine",
-      subtitle: "Awarded 1st Prize at Deram Technology Internship",
-      badge: "Award Winner 🏆",
-      tagline: "Scalable course creation, student enrollment pipeline, and dynamic curriculum tracking engine.",
-      description: "Engineered during a 1-month intensive MERN Stack internship at Deram Technology and earned 1st Prize out of all cohort submissions. Implemented multi-tier authentication, dynamic curriculum schemas, secure enrollment payment simulation, and instructor analytics.",
-      tech: ["MongoDB", "Express.js", "React.js", "Node.js", "Modular MVC", "REST APIs"],
-      color: "#10b981",
-      glowColor: "rgba(16, 185, 129, 0.4)",
-      highlights: [
-        "Won 1st Prize at Deram Technology for superior project architecture and execution",
-        "Developed end-to-end CRUD controllers with Mongoose models for courses, modules, and enrollments",
-        "Implemented role-based dashboards differentiating student learners from instructor administrators"
+      id: "course-platform",
+      title: "Course Management Platform",
+      tagline: "An end-to-end curriculum and enrollment system that won 1st Prize during my internship at Deram Technology.",
+      stack: ["MongoDB", "Express.js", "React.js", "Node.js", "MVC Pattern", "REST"],
+      year: "2025",
+      category: "Internship Project 🏆 1st Prize",
+      whyBuilt: "Built as the capstone deliverable during my 1-month intensive MERN Stack internship at Deram Technology, competing alongside peer developer interns.",
+      challenge: "Architecting a clean, relational-style course hierarchy (Course -> Modules -> Lessons -> Quizzes) inside MongoDB while keeping queries fast and writes simple.",
+      solution: "Designed normalized schemas with Mongoose population hooks, role-based middleware for Student vs. Instructor access, and clean CRUD controllers that made the codebase easy to extend.",
+      keyFeatures: [
+        "Earned 1st Prize across the internship cohort for clean code structure, robust API routes, and presentation",
+        "Role-based access control (Students can enroll and track lessons; Instructors can author courses and review analytics)",
+        "Dynamic course catalog with category filters, difficulty tags, and real-time student enrollment progress",
+        "Modular MVC architecture with clean controllers, input validation middleware, and structured error responses",
+        "Full CRUD functionality for courses, modules, lessons, and student enrollment records"
       ],
       mockApi: {
         endpoint: "/api/v1/courses/enroll",
         method: "POST",
+        description: "Simulate a student enrolling in a backend engineering course.",
         payload: {
-          courseId: "COURSE-MERN-901",
-          studentId: "STU-8821",
-          batch: "Fall-2026"
+          courseId: "CRS-NODE-401",
+          courseName: "Production Backend Architecture with Node.js",
+          studentId: "STU-ONKAR-77",
+          semester: "Fall 2026"
         },
         response: {
           status: 201,
           success: true,
+          message: "Enrollment confirmed. Course materials unlocked.",
           enrollmentId: "ENR_9019283",
-          accessGranted: true,
-          validTill: "2027-09-06"
+          courseTitle: "Production Backend Architecture with Node.js",
+          studentAccess: "Active",
+          modulesAvailable: 12,
+          enrolledAt: "2026-09-06T14:15:00Z"
         }
       }
     }
   ],
 
-  experience: [
+  journey: [
     {
-      role: "MERN Stack Developer Intern",
-      organization: "Deram Technology",
-      period: "Internship (1 Month)",
-      badge: "🏆 1st Prize Winner",
-      type: "Internship",
-      details: [
-        "Developed a complete MERN Stack Course Management Website from inception to deployment.",
-        "Engineered RESTful API routes, schema validation, and responsive React frontend interfaces.",
-        "Honored with 1st Prize for outstanding project development, code hygiene, and implementation."
-      ]
+      period: "2024 - 2027 (Expected)",
+      role: "B.Tech in Computer Science & Engineering",
+      institution: "N. K. Orchid College of Engineering & Technology, Solapur",
+      type: "Degree",
+      status: "Currently Pursuing",
+      description: "Deepening my theoretical and practical understanding of Computer Science — focusing on Advanced Data Structures & Algorithms, Operating Systems, Database Management Systems, Computer Networks, and Distributed Systems. Actively leading hackathon teams and collaborating on real-world engineering projects."
     },
     {
-      role: "Technical & Soft Skills Trainee",
-      organization: "Zensar Technologies",
-      period: "February 2026",
-      badge: "8-Day Intensive",
-      type: "Training",
-      details: [
-        "Completed rigorous hands-on technical training spanning Core Java, Advanced Java, SQL, and Python.",
-        "Practiced real-world coding problems, object-oriented design patterns, and database query optimizations.",
-        "Participated in 2 days of corporate workplace communication and technical presentation workshops."
-      ]
-    },
-    {
-      role: "Pre-Placement Aptitude & Problem Solving",
-      organization: "Aptech",
       period: "March 2026",
-      badge: "Assessment Ready",
+      role: "Pre-Placement Training",
+      institution: "Aptech",
       type: "Training",
-      details: [
-        "Completed specialized pre-placement training centered on quantitative aptitude, logical reasoning, and data interpretation.",
-        "Refined rapid problem-solving strategies for corporate placement exams and technical assessments."
-      ]
+      status: "Completed",
+      description: "Underwent intensive aptitude, analytical reasoning, and corporate readiness training designed to sharpen quantitative speed, verbal logic, and interview problem-solving techniques."
+    },
+    {
+      period: "February 2026",
+      role: "Technical & Soft Skills Training",
+      institution: "Zensar Technologies",
+      type: "Training",
+      status: "Completed (8-Day Program)",
+      description: "Selected for an intensive 8-day corporate training program. Spent 6 days diving deep into Core Java, Advanced Java concepts, SQL database queries, and Python scripting through hands-on coding labs, accompanied by 2 days focused on workplace communication and professional presentations."
+    },
+    {
+      period: "Internship (1 Month)",
+      role: "MERN Stack Developer Intern",
+      institution: "Deram Technology",
+      type: "Internship",
+      status: "1st Prize Awardee 🏆",
+      description: "Worked as a full-stack intern developing practical web applications with MongoDB, Express.js, React, and Node.js. Built a comprehensive Course Management Platform from scratch, earning 1st Prize across the entire internship batch for engineering execution and code quality."
+    },
+    {
+      period: "2021 - 2024",
+      role: "Diploma in Computer Science",
+      institution: "SPM Polytechnic, Kumthe",
+      type: "Academics",
+      status: "Graduated with 92% • Secured 1st Rank 🥇",
+      description: "Completed my 3-year foundational diploma in Computer Science, securing 1st Rank in academics with a 92% aggregate. Built a strong early foundation in Object-Oriented Programming (C++, Java), relational databases (SQL), web basics (HTML/CSS/JS), and hardware/OS basics."
+    },
+    {
+      period: "Completed 2021",
+      role: "Secondary School Certificate (10th SSC)",
+      institution: "Shri Mallikarjun High School",
+      type: "Schooling",
+      status: "83.14% Aggregate",
+      description: "Built strong fundamentals in mathematics and sciences, sparking my initial curiosity about computers and software engineering."
     }
   ],
 
   hackathons: [
     {
-      title: "Orchathon 2026",
-      type: "36-Hour Hackathon",
+      name: "Orchathon 2026",
+      duration: "36 Hours",
       year: "2026",
-      desc: "Architected high-velocity solution under intense 36-hour sprint with real-time teamwork and continuous deployment."
+      takeaway: "Spent 36 straight hours collaborating with teammates, debugging API integration bottlenecks at 3 AM, and delivering a functional full-stack prototype under strict deadlines."
     },
     {
-      title: "BLDE Vijayapura Hackathon",
-      type: "36-Hour Hackathon",
+      name: "BLDE Vijayapura Hackathon",
+      duration: "36 Hours",
       year: "2025",
-      desc: "Built full-stack prototype tackling community problem statement, emphasizing rapid API prototyping and database modeling."
+      takeaway: "Tackled a practical problem statement requiring rapid REST API prototyping, database modeling under pressure, and presenting the final MVP to judges."
     },
     {
-      title: "SVERI Pandharpur Hackathon",
-      type: "24-Hour Hackathon",
+      name: "SVERI Pandharpur Hackathon",
+      duration: "24 Hours",
       year: "2026",
-      desc: "Collaborated on rapid product MVP delivering clean modular code, intuitive UI, and reliable database connectivity."
-    }
-  ],
-
-  education: [
-    {
-      degree: "B.Tech in Computer Science & Engineering",
-      institution: "N. K. Orchid College of Engineering, Solapur",
-      period: "Pursuing • Expected 2027",
-      score: "Undergraduate",
-      highlight: "Deep focus on Advanced Data Structures, Backend Systems, DBMS, and Distributed Architecture."
-    },
-    {
-      degree: "Diploma in Computer Science",
-      institution: "SPM Polytechnic, Kumthe",
-      period: "Completed 2024",
-      score: "92% (Secured 1st Rank in Academics 🥇)",
-      highlight: "Awarded 1st Rank across the institution with 92% aggregate. Solid foundational mastery of OOP, C++, Java, and Web Basics."
-    },
-    {
-      degree: "10th SSC (Secondary School Certificate)",
-      institution: "Shri Mallikarjun High School",
-      period: "Completed 2021",
-      score: "83.14%",
-      highlight: "Excellence in Mathematics and Science foundation."
+      takeaway: "Focused on high-velocity prototyping, modular MVC architecture, and delivering a clean user interface backed by reliable Express controllers."
     }
   ],
 
   certifications: [
     {
-      title: "SQL Certification",
+      title: "SQL (Basic & Intermediate)",
       issuer: "HackerRank",
-      icon: "database",
-      badge: "Verified Skill",
-      desc: "Advanced relational queries, complex joins, aggregations, subqueries, and window functions."
+      focus: "Complex joins, subqueries, group by aggregations, window functions"
     },
     {
-      title: "Java Certification",
+      title: "Java",
       issuer: "HackerRank",
-      icon: "coffee",
-      badge: "Verified Skill",
-      desc: "Core Java, OOP principles, collections framework, exception handling, and multithreading."
+      focus: "Core Java, OOP principles, collections framework, exception handling"
     },
     {
-      title: "JavaScript Certification",
+      title: "JavaScript",
       issuer: "Scaler",
-      icon: "zap",
-      badge: "Advanced Core",
-      desc: "Asynchronous programming, event loop, functional patterns, ES6+ semantics, and DOM mechanics."
+      focus: "Asynchronous programming, closures, event loop, prototypes, ES6+"
     },
     {
-      title: "Python Certification",
+      title: "Python",
       issuer: "Reliance Foundation",
-      icon: "binary",
-      badge: "Certified",
-      desc: "Data manipulation, scripting, algorithmic problem solving, and Python standard library."
+      focus: "Data structures, scripting, algorithm design, standard libraries"
     },
     {
-      title: "PHP Certification",
+      title: "PHP",
       issuer: "Infosys Springboard",
-      icon: "code",
-      badge: "Enterprise Training",
-      desc: "Server-side scripting, request handling, sessions, and backend architecture."
+      focus: "Server-side request handling, session management, web fundamentals"
     }
   ]
 };
